@@ -910,7 +910,7 @@ route();
 /* El reproductor carga abierto y la canción arranca con el primer toque en cualquier parte de la página
    (los navegadores no dejan reproducir sonido antes de que el visitante interactúe). */
 (()=>{const btn=document.getElementById('music-btn'),card=document.getElementById('music-card');
-let ctrl=null,pending=false,started=false;
+let ctrl=null,pending=false,started=false;const URIS=['spotify:track:6UdCeS92BsXBNoITIxVqdi'];
 const toggle=open=>{card.hidden=!open;btn.setAttribute('aria-expanded',open)};
 btn.addEventListener('click',()=>toggle(card.hidden));
 document.getElementById('music-close').addEventListener('click',()=>toggle(false));
@@ -919,7 +919,7 @@ const stop=()=>EV.forEach(e=>document.removeEventListener(e,kick,true));
 function kick(){if(started)return;if(!ctrl){pending=true;return}started=true;stop();try{ctrl.play()}catch(e){}}
 EV.forEach(e=>document.addEventListener(e,kick,true));
 window.onSpotifyIframeApiReady=api=>{
-  api.createController(document.getElementById('sp-embed'),{uri:'spotify:track:6UdCeS92BsXBNoITIxVqdi',width:'100%',height:80},c=>{
+  api.createController(document.getElementById('sp-embed'),{uri:URIS[Math.floor(Math.random()*URIS.length)],width:'100%',height:80},c=>{
     ctrl=c;
     c.addListener('playback_update',ev=>{if(ev&&ev.data&&!ev.data.isPaused){started=true;stop()}});
     if(pending)kick();

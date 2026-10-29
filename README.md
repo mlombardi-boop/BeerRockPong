@@ -14,6 +14,6 @@ Web del torneo de beer pong Beer Rock. 1ª edición: sábado 21 de noviembre, 19
 1. Editá en `build_index.py`:
    - `FORM_URL`: link del Google Form de inscripción.
    - `PRECIO`: valor de la inscripción (vacío deja el que tiene `mockup.html`).
-   - `SPOTIFY_URL`: link de un tema o playlist de Spotify para el botón de música (vacío lo oculta).
+   - `SPOTIFY_TRACKS`: links de temas de Spotify; en cada visita suena uno al azar (lista vacía oculta el botón de música).
 2. Corré `python3 build_index.py`.
 3. Subí el `index.html` nuevo.

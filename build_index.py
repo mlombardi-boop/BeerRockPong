@@ -9,7 +9,10 @@ from pathlib import Path
 
 FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSe2-UFo3NuBwShoPakJW8BhoWTfUJuiqe88d8PO619on25b4Q/viewform"
 PRECIO = ""  # vacío deja el valor que tiene mockup.html; si no, reemplaza el texto de los dos lugares
-SPOTIFY_URL = "https://open.spotify.com/intl-es/track/6UdCeS92BsXBNoITIxVqdi"  # link de un tema o playlist (Spotify → Compartir → Copiar link); vacío no muestra el botón de música
+# Temas de Spotify (Compartir → Copiar enlace). En cada visita suena uno al azar; lista vacía oculta el botón de música.
+SPOTIFY_TRACKS = [
+    "https://open.spotify.com/intl-es/track/6UdCeS92BsXBNoITIxVqdi",  # Los Chicos - Andrés Calamaro
+]
 
 here = Path(__file__).parent
 src = (here / "mockup.html").read_text()
@@ -86,14 +89,16 @@ $('#ticker').innerHTML=INFO.concat(INFO).map(x=>`<span><b>${esc(x)}</b></span>`)
 $('#eds').innerHTML=`<div class="edcard"><div class="big">#1</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill warn">Inscripciones abiertas</span><span class="pill">Equipos de 3</span></div><h3>Edición inaugural</h3><p class="muted" style="margin:4px 0 0">Cuba Fátima · Sábado 21 de noviembre · 19 hs</p></div></div>`;
 route();""")
 
-# Botón flotante de música con el reproductor de Spotify (abierto al cargar la página)
-if SPOTIFY_URL:
-    m = re.search(r"open\.spotify\.com/(?:intl-[a-z]+/)?(track|playlist|album)/([A-Za-z0-9]+)", SPOTIFY_URL)
-    if not m:
-        raise SystemExit(f"No reconozco el link de Spotify: {SPOTIFY_URL}")
-    kind, sid = m.groups()
-    uri = f"spotify:{kind}:{sid}"
-    height = 80 if kind == "track" else 152
+# Botón flotante de música con el reproductor de Spotify (abierto al cargar, tema al azar)
+if SPOTIFY_TRACKS:
+    uris = []
+    for link in SPOTIFY_TRACKS:
+        m = re.search(r"open\.spotify\.com/(?:intl-[a-z]+/)?track/([A-Za-z0-9]+)", link)
+        if not m:
+            raise SystemExit(f"No es el link de un tema de Spotify: {link}")
+        uris.append(f"spotify:track:{m.group(1)}")
+    uris_js = "[" + ",".join(f"'{u}'" for u in uris) + "]"
+    height = 80
     s += f'''
 <style>
 .music-btn{{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;width:56px;height:56px;border-radius:50%;border:0;background:var(--orange);color:#1A0B00;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.45)}}
@@ -109,7 +114,7 @@ if SPOTIFY_URL:
 /* El reproductor carga abierto y la canción arranca con el primer toque en cualquier parte de la página
    (los navegadores no dejan reproducir sonido antes de que el visitante interactúe). */
 (()=>{{const btn=document.getElementById('music-btn'),card=document.getElementById('music-card');
-let ctrl=null,pending=false,started=false;
+let ctrl=null,pending=false,started=false;const URIS={uris_js};
 const toggle=open=>{{card.hidden=!open;btn.setAttribute('aria-expanded',open)}};
 btn.addEventListener('click',()=>toggle(card.hidden));
 document.getElementById('music-close').addEventListener('click',()=>toggle(false));
@@ -118,7 +123,7 @@ const stop=()=>EV.forEach(e=>document.removeEventListener(e,kick,true));
 function kick(){{if(started)return;if(!ctrl){{pending=true;return}}started=true;stop();try{{ctrl.play()}}catch(e){{}}}}
 EV.forEach(e=>document.addEventListener(e,kick,true));
 window.onSpotifyIframeApiReady=api=>{{
-  api.createController(document.getElementById('sp-embed'),{{uri:'{uri}',width:'100%',height:{height}}},c=>{{
+  api.createController(document.getElementById('sp-embed'),{{uri:URIS[Math.floor(Math.random()*URIS.length)],width:'100%',height:{height}}},c=>{{
     ctrl=c;
     c.addListener('playback_update',ev=>{{if(ev&&ev.data&&!ev.data.isPaused){{started=true;stop()}}}});
     if(pending)kick();
