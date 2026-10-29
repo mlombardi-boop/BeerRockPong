@@ -896,5 +896,23 @@ $('#eds').innerHTML=`<div class="edcard"><div class="big">#1</div><div><div clas
 route();
 </script>
 
+<style>
+.music-btn{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;width:56px;height:56px;border-radius:50%;border:0;background:var(--orange);color:#1A0B00;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.45)}
+.music-btn[aria-expanded="true"]{background:var(--sky);color:var(--night)}
+.music-card{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:40;width:min(340px,calc(100vw - 32px));background:var(--court);border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 14px 34px rgba(0,0,0,.5)}
+.music-card .mh{display:flex;justify-content:space-between;align-items:center;padding:2px 4px 8px}
+.music-card .mh button{border:0;background:none;color:var(--muted);font-size:24px;line-height:1;padding:0 4px}
+.music-card iframe{display:block;width:100%;height:80px;border:0;border-radius:12px}
+</style>
+<div class="music-card" id="music-card" hidden><div class="mh"><span class="lbl">Rock para la previa</span><button id="music-close" aria-label="Cerrar reproductor">×</button></div><div id="music-slot"></div></div>
+<button class="music-btn" id="music-btn" aria-label="Música" aria-expanded="false" aria-controls="music-card"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 3v11.6A3.5 3.5 0 1 0 11 18V8h7V3H9Z"/></svg></button>
+<script>
+(()=>{const btn=document.getElementById('music-btn'),card=document.getElementById('music-card');
+const toggle=open=>{card.hidden=!open;btn.setAttribute('aria-expanded',open);
+  if(open&&!card.querySelector('iframe')){const f=document.createElement('iframe');f.src='https://open.spotify.com/embed/track/6UdCeS92BsXBNoITIxVqdi?theme=0';f.title='Reproductor de Spotify';f.allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';f.loading='lazy';document.getElementById('music-slot').appendChild(f)}};
+btn.addEventListener('click',()=>toggle(card.hidden));
+document.getElementById('music-close').addEventListener('click',()=>toggle(false));})();
+</script>
+
 </body>
 </html>

@@ -9,7 +9,7 @@ from pathlib import Path
 
 FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSe2-UFo3NuBwShoPakJW8BhoWTfUJuiqe88d8PO619on25b4Q/viewform"
 PRECIO = ""  # vacío deja el valor que tiene mockup.html; si no, reemplaza el texto de los dos lugares
-SPOTIFY_URL = ""  # link de un tema o playlist (Spotify → Compartir → Copiar link); vacío no muestra el botón de música
+SPOTIFY_URL = "https://open.spotify.com/intl-es/track/6UdCeS92BsXBNoITIxVqdi"  # link de un tema o playlist (Spotify → Compartir → Copiar link); vacío no muestra el botón de música
 
 here = Path(__file__).parent
 src = (here / "mockup.html").read_text()
