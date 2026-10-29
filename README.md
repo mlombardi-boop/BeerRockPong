@@ -17,3 +17,8 @@ Web del torneo de beer pong Beer Rock. 1ª edición: sábado 21 de noviembre, 19
    - `SPOTIFY_TRACKS`: links de temas de Spotify; en cada visita suena uno al azar (lista vacía oculta el botón de música).
 2. Corré `python3 build_index.py`.
 3. Subí el `index.html` nuevo.
+
+## Formulario de inscripción
+
+- `formulario/crear_formulario.gs`: script de Google Apps Script que crea el Google Form y la planilla de respuestas. Para cada edición nueva, actualizar fecha y valores y ejecutarlo de nuevo.
+- `formulario/vista-previa.html`: cómo queda el formulario, con el tipo de cada pregunta.

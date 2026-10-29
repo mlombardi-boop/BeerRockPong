@@ -1,0 +1,117 @@
+<title>Formulario Beer Rock</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: réplica de Google Forms (columna de 640px con tarjetas) + notas de armado al costado de cada pregunta */
+:root{
+  --bg:#FFF1E6; --card:#FFFFFF; --ink:#202124; --muted:#5F6368; --line:#DADCE0;
+  --accent:#FF7A1A; --accent-soft:#FFE3CC; --req:#D93025; --note:#0B57D0; --note-bg:#E8F0FE;
+  --f-body:Roboto,"Segoe UI",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1E1A17;--card:#2A2522;--ink:#ECE6E1;--muted:#ADA39B;--line:#463F3A;--accent-soft:#4A2E18;--note:#9DBAFF;--note-bg:#1F2A44;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1E1A17;--card:#2A2522;--ink:#ECE6E1;--muted:#ADA39B;--line:#463F3A;--accent-soft:#4A2E18;--note:#9DBAFF;--note-bg:#1F2A44;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.5;padding-block:24px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:640px;margin:0 auto;display:grid;gap:12px}
+.intro{background:var(--note-bg);color:var(--note);border-radius:8px;padding:12px 14px;font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:22px 24px;display:grid;gap:12px}
+.head{border-top:10px solid var(--accent);padding-top:22px}
+.head h1{margin:0;font-size:30px;font-weight:400;line-height:1.2}
+.head p{margin:0;white-space:pre-line}
+.head .reqnote{color:var(--req);font-size:13px;border-top:1px solid var(--line);padding-top:10px}
+.sec{background:var(--accent);color:#fff;border-radius:8px 8px 0 0;padding:6px 14px;font-size:13px;font-weight:500;width:max-content;margin-bottom:-12px}
+.sec + .card{border-top-left-radius:0}
+.q{font-size:16px}
+.q b{font-weight:400}
+.q .r{color:var(--req)}
+.help{color:var(--muted);font-size:12.5px;margin-top:-6px}
+.field{border:0;border-bottom:1px solid var(--line);padding:6px 0;color:var(--muted);width:60%;min-width:200px;max-width:100%}
+.opt{display:flex;gap:12px;align-items:center}
+.box{width:18px;height:18px;border:2px solid var(--muted);border-radius:2px;flex:none}
+.upload{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:4px;padding:8px 14px;color:var(--accent);font-weight:500;width:max-content}
+.note{display:flex;gap:8px;flex-wrap:wrap;font-size:12px}
+.tag{background:var(--note-bg);color:var(--note);border-radius:4px;padding:2px 8px;font-weight:500}
+.tag.hand{background:var(--accent-soft);color:var(--ink)}
+.send{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.btn{background:var(--accent);color:#fff;border:0;border-radius:4px;padding:9px 24px;font-weight:500;font-size:14px}
+.confirm h2{margin:0;font-size:24px;font-weight:400}
+.label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:16px}
+</style>
+
+<div class="wrap">
+  <div class="intro">Así va a quedar el formulario de inscripción. Las etiquetas azules dicen qué tipo de pregunta elegir en Google Forms y si es obligatoria. La naranja es la que hay que agregar a mano (el script no la puede crear).</div>
+
+  <div class="card head">
+    <h1>Beer Rock · Inscripción 1ª edición</h1>
+    <p>Torneo de beer pong · Equipos de 3
+Sábado 21 de noviembre · 19 hs · Cuba Fátima
+
+Inscripción: $40.000 por persona ($120.000 por equipo de 3). Transferí al alias BEER.ROCK.PONG y subí el comprobante al final del formulario. Sin comprobante, el equipo no queda inscripto.
+
+Quedan pocos cupos.</p>
+    <div class="reqnote">* Indica que la pregunta es obligatoria</div>
+  </div>
+
+  <div class="card">
+    <div class="q"><b>Nombre del equipo</b> <span class="r">*</span></div>
+    <div class="field">Tu respuesta</div>
+    <div class="note"><span class="tag">Respuesta corta</span><span class="tag">Obligatoria</span></div>
+  </div>
+
+  <div class="sec">Integrante 1 (capitán)</div>
+  <div class="card">
+    <div class="q"><b>Integrante 1: nombre y apellido</b> <span class="r">*</span></div>
+    <div class="field">Tu respuesta</div>
+    <div class="note"><span class="tag">Respuesta corta</span><span class="tag">Obligatoria</span></div>
+  </div>
+  <div class="card">
+    <div class="q"><b>Integrante 1: celular con WhatsApp</b> <span class="r">*</span></div>
+    <div class="help">Es el contacto del equipo.</div>
+    <div class="field">Tu respuesta</div>
+    <div class="note"><span class="tag">Respuesta corta</span><span class="tag">Obligatoria</span><span class="tag">Validación: solo números, 8 a 20</span></div>
+  </div>
+
+  <div class="sec">Integrante 2</div>
+  <div class="card">
+    <div class="q"><b>Integrante 2: nombre y apellido</b> <span class="r">*</span></div>
+    <div class="field">Tu respuesta</div>
+    <div class="note"><span class="tag">Respuesta corta</span><span class="tag">Obligatoria</span></div>
+  </div>
+
+  <div class="sec">Integrante 3</div>
+  <div class="card">
+    <div class="q"><b>Integrante 3: nombre y apellido</b> <span class="r">*</span></div>
+    <div class="field">Tu respuesta</div>
+    <div class="note"><span class="tag">Respuesta corta</span><span class="tag">Obligatoria</span></div>
+  </div>
+
+  <div class="card">
+    <div class="q"><b>Email de contacto</b> <span class="r">*</span></div>
+    <div class="field">Tu respuesta</div>
+    <div class="note"><span class="tag">Respuesta corta</span><span class="tag">Obligatoria</span><span class="tag">Validación: email</span></div>
+  </div>
+  <div class="card">
+    <div class="q"><b>Mayores de edad</b> <span class="r">*</span></div>
+    <div class="opt"><span class="box"></span>Los 3 integrantes somos mayores de 18 años</div>
+    <div class="note"><span class="tag">Casillas de verificación</span><span class="tag">Obligatoria</span></div>
+  </div>
+  <div class="card">
+    <div class="q"><b>Reglamento</b> <span class="r">*</span></div>
+    <div class="help">Leelo acá: https://miguelo20.github.io/beerrockpong/#reglamento</div>
+    <div class="opt"><span class="box"></span>Leímos y aceptamos el reglamento</div>
+    <div class="note"><span class="tag">Casillas de verificación</span><span class="tag">Obligatoria</span></div>
+  </div>
+  <div class="card">
+    <div class="q"><b>Comprobante de pago</b> <span class="r">*</span></div>
+    <div class="help">Subí la transferencia de $120.000 (o las 3 de $40.000). Si no podés subirlo, mandalo por WhatsApp al 11-XXXX-XXXX.</div>
+    <div class="upload">⇪ Agregar archivo</div>
+    <div class="note"><span class="tag hand">Agregar a mano</span><span class="tag">Subir archivo</span><span class="tag">Obligatoria</span><span class="tag">PDF e Imagen · máx. 3 archivos · 10 MB</span></div>
+  </div>
+
+  <div class="send"><button class="btn" type="button">Enviar</button><span style="color:var(--muted);font-size:13px">Borrar formulario</span></div>
+
+  <div class="label">Después de enviar</div>
+  <div class="card head confirm">
+    <h2>Beer Rock · Inscripción 1ª edición</h2>
+    <p>¡Listo! Recibimos la inscripción. Te escribimos por WhatsApp para confirmar el lugar. El que pierde, toma.</p>
+  </div>
+</div>
