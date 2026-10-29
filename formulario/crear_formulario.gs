@@ -4,7 +4,7 @@
  * Después agregar a mano la pregunta "Comprobante de pago" (tipo Subir archivo, obligatoria).
  * Para una nueva edición: actualizar el título, la fecha y los valores de abajo.
  */
-const REGLAMENTO_URL = 'https://miguelo20.github.io/BeerRockPong/#reglamento';
+const REGLAMENTO_URL = 'https://beerrock.vercel.app/#reglamento';
 const PRECIO = '$40.000 por persona ($120.000 por equipo de 3)';
 const ALIAS = 'BEER.ROCK.PONG';
 

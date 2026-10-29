@@ -1,6 +1,6 @@
 # Beer Rock
 
-Web del torneo de beer pong Beer Rock. 1ª edición: sábado 21 de noviembre, 19 hs, Cuba Fátima.
+Web del torneo de beer pong Beer Rock: https://beerrock.vercel.app (Vercel publica solo cada push a `main`). 1ª edición: sábado 21 de noviembre, 19 hs, Cuba Fátima.
 
 ## Archivos
 
