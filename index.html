@@ -904,15 +904,29 @@ route();
 .music-card .mh button{border:0;background:none;color:var(--muted);font-size:24px;line-height:1;padding:0 4px}
 .music-card iframe{display:block;width:100%;height:80px;border:0;border-radius:12px}
 </style>
-<div class="music-card" id="music-card" hidden><div class="mh"><span class="lbl">Rock para la previa</span><button id="music-close" aria-label="Cerrar reproductor">×</button></div><div id="music-slot"></div></div>
-<button class="music-btn" id="music-btn" aria-label="Música" aria-expanded="false" aria-controls="music-card"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 3v11.6A3.5 3.5 0 1 0 11 18V8h7V3H9Z"/></svg></button>
+<div class="music-card" id="music-card"><div class="mh"><span class="lbl">Rock para la previa</span><button id="music-close" aria-label="Cerrar reproductor">×</button></div><div id="music-slot"><div id="sp-embed"></div></div></div>
+<button class="music-btn" id="music-btn" aria-label="Música" aria-expanded="true" aria-controls="music-card"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 3v11.6A3.5 3.5 0 1 0 11 18V8h7V3H9Z"/></svg></button>
 <script>
+/* El reproductor carga abierto y la canción arranca con el primer toque en cualquier parte de la página
+   (los navegadores no dejan reproducir sonido antes de que el visitante interactúe). */
 (()=>{const btn=document.getElementById('music-btn'),card=document.getElementById('music-card');
-const toggle=open=>{card.hidden=!open;btn.setAttribute('aria-expanded',open);
-  if(open&&!card.querySelector('iframe')){const f=document.createElement('iframe');f.src='https://open.spotify.com/embed/track/6UdCeS92BsXBNoITIxVqdi?theme=0';f.title='Reproductor de Spotify';f.allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';f.loading='lazy';document.getElementById('music-slot').appendChild(f)}};
+let ctrl=null,pending=false,started=false;
+const toggle=open=>{card.hidden=!open;btn.setAttribute('aria-expanded',open)};
 btn.addEventListener('click',()=>toggle(card.hidden));
 document.getElementById('music-close').addEventListener('click',()=>toggle(false));
-toggle(true);})();
+const EV=['click','touchend','keydown'];
+const stop=()=>EV.forEach(e=>document.removeEventListener(e,kick,true));
+function kick(){if(started)return;if(!ctrl){pending=true;return}started=true;stop();try{ctrl.play()}catch(e){}}
+EV.forEach(e=>document.addEventListener(e,kick,true));
+window.onSpotifyIframeApiReady=api=>{
+  api.createController(document.getElementById('sp-embed'),{uri:'spotify:track:6UdCeS92BsXBNoITIxVqdi',width:'100%',height:80},c=>{
+    ctrl=c;
+    c.addListener('playback_update',ev=>{if(ev&&ev.data&&!ev.data.isPaused){started=true;stop()}});
+    if(pending)kick();
+  });
+};
+const sc=document.createElement('script');sc.src='https://open.spotify.com/embed/iframe-api/v1';sc.async=true;document.head.appendChild(sc);
+})();
 </script>
 
 </body>
