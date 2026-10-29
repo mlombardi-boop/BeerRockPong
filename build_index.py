@@ -83,7 +83,7 @@ sub("  if(b.id==='cta-insc'||b.classList.contains('insc-btn')){e.preventDefault(
 # Arranque: sin datos simulados
 sub("renderEdiciones();\nrenderAll();\nroute();", """const INFO=['Sábado 21/11','Cuba Fátima','19 hs','Toca La Curiosa en el medio tiempo','After cachengoso','Quedan pocos cupos','El que pierde, toma.'];
 $('#ticker').innerHTML=INFO.concat(INFO).map(x=>`<span><b>${esc(x)}</b></span>`).join('');
-$('#eds').innerHTML=`<div class="edcard"><div class="big">#1</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill warn">Inscripciones abiertas</span><span class="pill">Equipos de 3</span></div><h3>Edición inaugural</h3><p class="muted" style="margin:4px 0 0">Cuba Fátima · Sábado 21 de noviembre · 19 hs</p><p class="muted" style="margin:8px 0 0">Cuando termine, acá van a quedar la tabla, las llaves y los campeones de las cinco copas.</p></div></div>`;
+$('#eds').innerHTML=`<div class="edcard"><div class="big">#1</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill warn">Inscripciones abiertas</span><span class="pill">Equipos de 3</span></div><h3>Edición inaugural</h3><p class="muted" style="margin:4px 0 0">Cuba Fátima · Sábado 21 de noviembre · 19 hs</p></div></div>`;
 route();""")
 
 # Botón flotante de música con el reproductor de Spotify (se carga recién al primer toque)
