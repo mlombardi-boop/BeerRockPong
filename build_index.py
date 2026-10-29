@@ -12,6 +12,10 @@ PRECIO = ""  # vacío deja el valor que tiene mockup.html; si no, reemplaza el t
 # Temas de Spotify (Compartir → Copiar enlace). En cada visita suena uno al azar; lista vacía oculta el botón de música.
 SPOTIFY_TRACKS = [
     "https://open.spotify.com/intl-es/track/6UdCeS92BsXBNoITIxVqdi",  # Los Chicos - Andrés Calamaro
+    "https://open.spotify.com/track/7DWlu0RSXcUxRXSm4xSBjS",
+    "https://open.spotify.com/track/6sTKR2dcVI7Oalwyxtfede",
+    "https://open.spotify.com/track/0LTPPsp9xmM92ZT6pGvsrz",
+    "https://open.spotify.com/track/6ZahpCyZGFcisp28CWohSe",
 ]
 
 here = Path(__file__).parent

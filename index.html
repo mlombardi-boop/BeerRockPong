@@ -910,7 +910,7 @@ route();
 /* El reproductor carga abierto y la canción arranca con el primer toque en cualquier parte de la página
    (los navegadores no dejan reproducir sonido antes de que el visitante interactúe). */
 (()=>{const btn=document.getElementById('music-btn'),card=document.getElementById('music-card');
-let ctrl=null,pending=false,started=false;const URIS=['spotify:track:6UdCeS92BsXBNoITIxVqdi'];
+let ctrl=null,pending=false,started=false;const URIS=['spotify:track:6UdCeS92BsXBNoITIxVqdi','spotify:track:7DWlu0RSXcUxRXSm4xSBjS','spotify:track:6sTKR2dcVI7Oalwyxtfede','spotify:track:0LTPPsp9xmM92ZT6pGvsrz','spotify:track:6ZahpCyZGFcisp28CWohSe'];
 const toggle=open=>{card.hidden=!open;btn.setAttribute('aria-expanded',open)};
 btn.addEventListener('click',()=>toggle(card.hidden));
 document.getElementById('music-close').addEventListener('click',()=>toggle(false));
