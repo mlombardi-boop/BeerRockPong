@@ -911,7 +911,8 @@ route();
 const toggle=open=>{card.hidden=!open;btn.setAttribute('aria-expanded',open);
   if(open&&!card.querySelector('iframe')){const f=document.createElement('iframe');f.src='https://open.spotify.com/embed/track/6UdCeS92BsXBNoITIxVqdi?theme=0';f.title='Reproductor de Spotify';f.allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';f.loading='lazy';document.getElementById('music-slot').appendChild(f)}};
 btn.addEventListener('click',()=>toggle(card.hidden));
-document.getElementById('music-close').addEventListener('click',()=>toggle(false));})();
+document.getElementById('music-close').addEventListener('click',()=>toggle(false));
+toggle(true);})();
 </script>
 
 </body>

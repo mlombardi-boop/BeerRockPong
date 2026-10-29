@@ -86,7 +86,7 @@ $('#ticker').innerHTML=INFO.concat(INFO).map(x=>`<span><b>${esc(x)}</b></span>`)
 $('#eds').innerHTML=`<div class="edcard"><div class="big">#1</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill warn">Inscripciones abiertas</span><span class="pill">Equipos de 3</span></div><h3>Edición inaugural</h3><p class="muted" style="margin:4px 0 0">Cuba Fátima · Sábado 21 de noviembre · 19 hs</p></div></div>`;
 route();""")
 
-# Botón flotante de música con el reproductor de Spotify (se carga recién al primer toque)
+# Botón flotante de música con el reproductor de Spotify (abierto al cargar la página)
 if SPOTIFY_URL:
     m = re.search(r"open\.spotify\.com/(?:intl-[a-z]+/)?(track|playlist|album)/([A-Za-z0-9]+)", SPOTIFY_URL)
     if not m:
@@ -110,7 +110,8 @@ if SPOTIFY_URL:
 const toggle=open=>{{card.hidden=!open;btn.setAttribute('aria-expanded',open);
   if(open&&!card.querySelector('iframe')){{const f=document.createElement('iframe');f.src='{embed}';f.title='Reproductor de Spotify';f.allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';f.loading='lazy';document.getElementById('music-slot').appendChild(f)}}}};
 btn.addEventListener('click',()=>toggle(card.hidden));
-document.getElementById('music-close').addEventListener('click',()=>toggle(false));}})();
+document.getElementById('music-close').addEventListener('click',()=>toggle(false));
+toggle(true);}})();
 </script>
 '''
 
