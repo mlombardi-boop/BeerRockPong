@@ -5,7 +5,7 @@
  * Para una nueva edición: actualizar el título, la fecha y los valores de abajo.
  */
 const REGLAMENTO_URL = 'https://beerrock.vercel.app/#reglamento';
-const PRECIO = '$40.000 por persona ($120.000 por equipo de 3)';
+const PRECIO = '$100.000 por equipo (incluye todo para jugar y divertirte)';
 const ALIAS = 'BEER.ROCK.PONG';
 
 function crearFormulario() {
