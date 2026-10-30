@@ -384,8 +384,8 @@ table.st tr.flash td{animation:flash 1.6s ease-out}
     <div>
       <div class="eyebrow">Torneo de beer pong · Equipos de 3</div>
       <h1>Beer<span class="r">Rock</span></h1>
-      <p class="slogan">El que pierde, toma.</p>
-      <p class="lede">Seis vasos, tres amigos y una noche larga. Fase general, cinco copas, La Curiosa en el medio tiempo y after cachengoso.</p>
+      <p class="slogan">Divertite con amigos.</p>
+      <p class="lede">Seis vasos, tres amigos y una noche larga. Fase general, cinco copas, show en el medio tiempo y after cachengoso.</p>
       <div class="cta">
         <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSe2-UFo3NuBwShoPakJW8BhoWTfUJuiqe88d8PO619on25b4Q/viewform" target="_blank" rel="noopener">Inscribí tu equipo</a>
         <a class="btn ghost" href="#reglamento">Ver reglamento</a>
@@ -401,7 +401,7 @@ table.st tr.flash td{animation:flash 1.6s ease-out}
         <dt>Sede</dt><dd>Cuba Fátima</dd>
         <dt>Formato</dt><dd>Equipos de 3</dd>
         <dt>Inscripción</dt><dd><span class="precio">$40.000 por persona</span></dd>
-        <dt>Medio tiempo</dt><dd>Toca La Curiosa</dd>
+        <dt>Medio tiempo</dt><dd>Show en vivo</dd>
         <dt>Después</dt><dd>After cachengoso</dd>
       </dl>
       <div class="cupo">
@@ -450,7 +450,7 @@ table.st tr.flash td{animation:flash 1.6s ease-out}
     <div class="timeline">
       <div class="tl"><time>19:00</time><div><b>Acreditación y sorteo</b><p>Check-in de los equipos y sorteo de la fase general en pantalla.</p></div></div>
       <div class="tl"><time>19:45</time><div><b>Fase general</b><p>3 partidos por equipo.</p></div></div>
-      <div class="tl hot"><time>21:15</time><div><b>Show de medio tiempo: La Curiosa</b><p>Toca La Curiosa mientras se arman las llaves de las copas.</p></div></div>
+      <div class="tl hot"><time>21:15</time><div><b>Show de medio tiempo</b><p>Banda en vivo mientras se arman las llaves de las copas.</p></div></div>
       <div class="tl"><time>21:35</time><div><b>Copas</b><p>Oro, Plata, Bronce, Caucho y Corcho. Cuartos, semis, final y 3er puesto.</p></div></div>
       <div class="tl"><time>22:50</time><div><b>Premiación</b><p>Campeones de las cinco copas.</p></div></div>
       <div class="tl hot"><time>23:15</time><div><b>After cachengoso</b><p>DJ y/o banda en vivo.</p></div></div>
@@ -497,7 +497,7 @@ table.st tr.flash td{animation:flash 1.6s ease-out}
 </main>
 
 <footer class="foot">
-  <div class="wrap"><span>Beer Rock · El que pierde, toma.</span></div>
+  <div class="wrap"><span>Beer Rock · El que pierde, toma.</span><span class="muted">La inscripción no tiene devolución; el lugar se puede ceder avisando por WhatsApp. Al inscribirte aceptás el reglamento.</span></div>
 </footer>
 
 <div class="toast" id="toast" role="status" hidden></div>
@@ -889,8 +889,8 @@ document.addEventListener('click',e=>{
 });
 document.addEventListener('input',e=>{if(e.target.id==='q'){UI.q=e.target.value;const pos=e.target.selectionStart;renderTorneo();const q=$('#q');q.focus();q.setSelectionRange(pos,pos)}});
 
-$('#copa-strip').innerHTML=COPAS.map(c=>`<div class="copa-tile" style="--c:${c.c}"><b>Copa ${c.name}</b><span>${['Los mejores de la tabla','Segundo bloque','Tercer bloque','Cuarto bloque','Los últimos de la tabla'][COPAS.indexOf(c)]}</span></div>`).join('');
-const INFO=['Sábado 21/11','Cuba Fátima','19 hs','Toca La Curiosa en el medio tiempo','After cachengoso','Quedan pocos cupos','El que pierde, toma.'];
+$('#copa-strip').innerHTML=COPAS.map(c=>`<div class="copa-tile" style="--c:${c.c}"><b>Copa ${c.name}</b><span>${['Los mejores de la tabla','Segundo bloque','Tercer bloque','Cuarto bloque','A practicar con el corchito de Susana, quedaste eliminado.'][COPAS.indexOf(c)]}</span></div>`).join('');
+const INFO=['Sábado 21/11','Cuba Fátima','19 hs','Show de medio tiempo','After cachengoso','Quedan pocos cupos'];
 $('#ticker').innerHTML=INFO.concat(INFO).map(x=>`<span><b>${esc(x)}</b></span>`).join('');
 $('#eds').innerHTML=`<div class="edcard"><div class="big">#1</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill warn">Inscripciones abiertas</span><span class="pill">Equipos de 3</span></div><h3>Edición inaugural</h3><p class="muted" style="margin:4px 0 0">Cuba Fátima · Sábado 21 de noviembre · 19 hs</p></div></div>`;
 route();
@@ -904,26 +904,16 @@ route();
 .music-card .mh button{border:0;background:none;color:var(--muted);font-size:24px;line-height:1;padding:0 4px}
 .music-card iframe{display:block;width:100%;height:80px;border:0;border-radius:12px}
 </style>
-<div class="music-card" id="music-card"><div class="mh"><span class="lbl">Rock para la previa</span><button id="music-close" aria-label="Cerrar reproductor">×</button></div><div id="music-slot"><div id="sp-embed"></div></div></div>
-<button class="music-btn" id="music-btn" aria-label="Música" aria-expanded="true" aria-controls="music-card"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 3v11.6A3.5 3.5 0 1 0 11 18V8h7V3H9Z"/></svg></button>
+<div class="music-card" id="music-card" hidden><div class="mh"><span class="lbl">Rock para la previa</span><button id="music-close" aria-label="Cerrar reproductor">×</button></div><div id="music-slot"><div id="sp-embed"></div></div></div>
+<button class="music-btn" id="music-btn" aria-label="Música" aria-expanded="false" aria-controls="music-card"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 3v11.6A3.5 3.5 0 1 0 11 18V8h7V3H9Z"/></svg></button>
 <script>
-/* El reproductor carga abierto y la canción arranca con el primer toque en cualquier parte de la página
-   (los navegadores no dejan reproducir sonido antes de que el visitante interactúe). */
-(()=>{const btn=document.getElementById('music-btn'),card=document.getElementById('music-card');
-let ctrl=null,pending=false,started=false;const URIS=['spotify:track:6UdCeS92BsXBNoITIxVqdi','spotify:track:7DWlu0RSXcUxRXSm4xSBjS','spotify:track:6sTKR2dcVI7Oalwyxtfede','spotify:track:0LTPPsp9xmM92ZT6pGvsrz','spotify:track:6ZahpCyZGFcisp28CWohSe'];
+/* El reproductor arranca cerrado y en pausa: el visitante abre el botón de música y le da play. */
+(()=>{const btn=document.getElementById('music-btn'),card=document.getElementById('music-card');const URIS=['spotify:track:6UdCeS92BsXBNoITIxVqdi','spotify:track:7DWlu0RSXcUxRXSm4xSBjS','spotify:track:6sTKR2dcVI7Oalwyxtfede','spotify:track:0LTPPsp9xmM92ZT6pGvsrz','spotify:track:6ZahpCyZGFcisp28CWohSe'];
 const toggle=open=>{card.hidden=!open;btn.setAttribute('aria-expanded',open)};
 btn.addEventListener('click',()=>toggle(card.hidden));
 document.getElementById('music-close').addEventListener('click',()=>toggle(false));
-const EV=['click','touchend','keydown'];
-const stop=()=>EV.forEach(e=>document.removeEventListener(e,kick,true));
-function kick(){if(started)return;if(!ctrl){pending=true;return}started=true;stop();try{ctrl.play()}catch(e){}}
-EV.forEach(e=>document.addEventListener(e,kick,true));
 window.onSpotifyIframeApiReady=api=>{
-  api.createController(document.getElementById('sp-embed'),{uri:URIS[Math.floor(Math.random()*URIS.length)],width:'100%',height:80},c=>{
-    ctrl=c;
-    c.addListener('playback_update',ev=>{if(ev&&ev.data&&!ev.data.isPaused){started=true;stop()}});
-    if(pending)kick();
-  });
+  api.createController(document.getElementById('sp-embed'),{uri:URIS[Math.floor(Math.random()*URIS.length)],width:'100%',height:80},c=>{});
 };
 const sc=document.createElement('script');sc.src='https://open.spotify.com/embed/iframe-api/v1';sc.async=true;document.head.appendChild(sc);
 })();

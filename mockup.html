@@ -377,8 +377,8 @@ table.st tr.flash td{animation:flash 1.6s ease-out}
     <div>
       <div class="eyebrow">Torneo de beer pong · Equipos de 3</div>
       <h1>Beer<span class="r">Rock</span></h1>
-      <p class="slogan">El que pierde, toma.</p>
-      <p class="lede">Seis vasos, tres amigos y una noche larga. Fase general, cinco copas, La Curiosa en el medio tiempo y after cachengoso.</p>
+      <p class="slogan">Divertite con amigos.</p>
+      <p class="lede">Seis vasos, tres amigos y una noche larga. Fase general, cinco copas, show en el medio tiempo y after cachengoso.</p>
       <div class="cta">
         <a class="btn primary" href="#inicio" id="cta-insc">Inscribí tu equipo</a>
         <a class="btn ghost" href="#torneo">Ver torneo en vivo</a>
@@ -394,7 +394,7 @@ table.st tr.flash td{animation:flash 1.6s ease-out}
         <dt>Sede</dt><dd>Cuba Fátima</dd>
         <dt>Formato</dt><dd>Equipos de 3</dd>
         <dt>Inscripción</dt><dd><span class="precio">$40.000 por persona</span></dd>
-        <dt>Medio tiempo</dt><dd>Toca La Curiosa</dd>
+        <dt>Medio tiempo</dt><dd>Show en vivo</dd>
         <dt>Después</dt><dd>After cachengoso</dd>
       </dl>
       <div class="cupo">
@@ -442,7 +442,7 @@ table.st tr.flash td{animation:flash 1.6s ease-out}
     <div class="timeline">
       <div class="tl"><time>19:00</time><div><b>Acreditación y sorteo</b><p>Check-in de los equipos y sorteo de la fase general en pantalla.</p></div></div>
       <div class="tl"><time>19:45</time><div><b>Fase general</b><p>3 partidos por equipo.</p></div></div>
-      <div class="tl hot"><time>21:15</time><div><b>Show de medio tiempo: La Curiosa</b><p>Toca La Curiosa mientras se arman las llaves de las copas.</p></div></div>
+      <div class="tl hot"><time>21:15</time><div><b>Show de medio tiempo</b><p>Banda en vivo mientras se arman las llaves de las copas.</p></div></div>
       <div class="tl"><time>21:35</time><div><b>Copas</b><p>Oro, Plata, Bronce, Caucho y Corcho. Cuartos, semis, final y 3er puesto.</p></div></div>
       <div class="tl"><time>22:50</time><div><b>Premiación</b><p>Campeones de las cinco copas.</p></div></div>
       <div class="tl hot"><time>23:15</time><div><b>After cachengoso</b><p>DJ y/o banda en vivo.</p></div></div>
@@ -512,7 +512,7 @@ table.st tr.flash td{animation:flash 1.6s ease-out}
 </main>
 
 <footer class="foot">
-  <div class="wrap"><span>Beer Rock · El que pierde, toma.</span></div>
+  <div class="wrap"><span>Beer Rock · El que pierde, toma.</span><span class="muted">La inscripción no tiene devolución; el lugar se puede ceder avisando por WhatsApp. Al inscribirte aceptás el reglamento.</span></div>
 </footer>
 
 <div class="toast" id="toast" role="status" hidden></div>
@@ -905,7 +905,7 @@ document.addEventListener('click',e=>{
 });
 document.addEventListener('input',e=>{if(e.target.id==='q'){UI.q=e.target.value;const pos=e.target.selectionStart;renderTorneo();const q=$('#q');q.focus();q.setSelectionRange(pos,pos)}});
 
-$('#copa-strip').innerHTML=COPAS.map(c=>`<div class="copa-tile" style="--c:${c.c}"><b>Copa ${c.name}</b><span>${['Los mejores de la tabla','Segundo bloque','Tercer bloque','Cuarto bloque','Los últimos de la tabla'][COPAS.indexOf(c)]}</span></div>`).join('');
+$('#copa-strip').innerHTML=COPAS.map(c=>`<div class="copa-tile" style="--c:${c.c}"><b>Copa ${c.name}</b><span>${['Los mejores de la tabla','Segundo bloque','Tercer bloque','Cuarto bloque','A practicar con el corchito de Susana, quedaste eliminado.'][COPAS.indexOf(c)]}</span></div>`).join('');
 renderEdiciones();
 renderAll();
 route();
