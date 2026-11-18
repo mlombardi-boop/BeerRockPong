@@ -390,8 +390,9 @@ table.st tr.flash td{animation:flash 1.6s ease-out}
       <div><div class="eyebrow">Próxima edición</div>
       <div class="ed">Edición #1</div></div>
       <dl class="kv">
-        <dt>Fecha</dt><dd>Sábado 21 de noviembre · 19 hs</dd>
-        <dt>Sede</dt><dd>Cuba Fátima</dd>
+        <dt>Fecha</dt><dd>Viernes 11 de diciembre · 19 hs</dd>
+        <dt>Sede</dt><dd>BABA Bar</dd>
+        <dt>Dirección</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Av.+del+Libertador+2629,+Olivos" target="_blank" rel="noopener">Av. del Libertador 2629, Olivos</a></dd>
         <dt>Formato</dt><dd>Equipos de 3</dd>
         <dt>Inscripción</dt><dd><span class="precio">$100.000 por equipo</span></dd>
         <dt>Medio tiempo</dt><dd>Show en vivo</dd>
@@ -454,7 +455,7 @@ table.st tr.flash td{animation:flash 1.6s ease-out}
 <section class="view" id="v-torneo" hidden>
   <div class="t-head">
     <div>
-      <div class="eyebrow">Edición #1 · Cuba Fátima</div>
+      <div class="eyebrow">Edición #1 · BABA Bar</div>
       <h2>Torneo <span>activo</span></h2>
       <div class="status-line" id="status-line"></div>
     </div>
@@ -808,7 +809,7 @@ function renderEdiciones(){
   const F=buildState('final',77);
   const podium=COPAS.map(c=>{const f=cm(F,c.id,'F');const t=F.teams[f.winner];return `<div style="--c:${c.c}"><small>Copa ${c.name}</small><p>${esc(t.name)}<span>${t.players.map(esc).join(' · ')}</span></p></div>`}).join('');
   $('#eds').innerHTML=`
-  <div class="edcard"><div class="big">#1</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill live"><i class="live-dot"></i>En curso</span><span class="pill">Equipos de 3</span></div><h3>Edición inaugural</h3><p class="muted" style="margin:4px 0 0">Cuba Fátima · Sábado 21 de noviembre · 19 hs</p><div class="cta" style="margin-top:12px"><a class="btn ghost" href="#torneo">Ver en vivo</a></div></div></div>
+  <div class="edcard"><div class="big">#1</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill live"><i class="live-dot"></i>En curso</span><span class="pill">Equipos de 3</span></div><h3>Edición inaugural</h3><p class="muted" style="margin:4px 0 0">BABA Bar · Viernes 11 de diciembre · 19 hs</p><div class="cta" style="margin-top:12px"><a class="btn ghost" href="#torneo">Ver en vivo</a></div></div></div>
   <div class="edcard" style="opacity:.92"><div class="big" style="color:var(--muted)">#0</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill">Finalizado</span><span class="pill warn">Ejemplo</span></div><h3>Así se ve una edición terminada</h3><p class="muted" style="margin:4px 0 0">Campeones de las cinco copas con sus tres jugadores. Datos simulados.</p><div class="champs">${podium}</div></div></div>`;
 }
 

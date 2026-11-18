@@ -397,8 +397,9 @@ table.st tr.flash td{animation:flash 1.6s ease-out}
       <div><div class="eyebrow">Próxima edición</div>
       <div class="ed">Edición #1</div></div>
       <dl class="kv">
-        <dt>Fecha</dt><dd>Sábado 21 de noviembre · 19 hs</dd>
-        <dt>Sede</dt><dd>Cuba Fátima</dd>
+        <dt>Fecha</dt><dd>Viernes 11 de diciembre · 19 hs</dd>
+        <dt>Sede</dt><dd>BABA Bar</dd>
+        <dt>Dirección</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Av.+del+Libertador+2629,+Olivos" target="_blank" rel="noopener">Av. del Libertador 2629, Olivos</a></dd>
         <dt>Formato</dt><dd>Equipos de 3</dd>
         <dt>Inscripción</dt><dd><span class="precio">$100.000 por equipo</span></dd>
         <dt>Medio tiempo</dt><dd>Show en vivo</dd>
@@ -460,7 +461,7 @@ table.st tr.flash td{animation:flash 1.6s ease-out}
 
 <!-- TORNEO -->
 <section class="view" id="v-torneo" hidden>
-  <div class="eyebrow">Edición #1 · Cuba Fátima · Sábado 21/11 · 19 hs</div>
+  <div class="eyebrow">Edición #1 · BABA Bar · Viernes 11/12 · 19 hs</div>
   <h2>Torneo <span style="color:var(--orange)">activo</span></h2>
   <div class="op" style="margin-top:18px;max-width:720px">
     <b>Arranca el día del evento</b>
@@ -793,7 +794,7 @@ function renderEdiciones(){
   const F=buildState('final',77);
   const podium=COPAS.map(c=>{const f=cm(F,c.id,'F');const t=F.teams[f.winner];return `<div style="--c:${c.c}"><small>Copa ${c.name}</small><p>${esc(t.name)}<span>${t.players.map(esc).join(' · ')}</span></p></div>`}).join('');
   $('#eds').innerHTML=`
-  <div class="edcard"><div class="big">#1</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill live"><i class="live-dot"></i>En curso</span><span class="pill">Equipos de 3</span></div><h3>Edición inaugural</h3><p class="muted" style="margin:4px 0 0">Cuba Fátima · Sábado 21 de noviembre · 19 hs</p><div class="cta" style="margin-top:12px"><a class="btn ghost" href="#torneo">Ver en vivo</a></div></div></div>
+  <div class="edcard"><div class="big">#1</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill live"><i class="live-dot"></i>En curso</span><span class="pill">Equipos de 3</span></div><h3>Edición inaugural</h3><p class="muted" style="margin:4px 0 0">BABA Bar · Viernes 11 de diciembre · 19 hs</p><div class="cta" style="margin-top:12px"><a class="btn ghost" href="#torneo">Ver en vivo</a></div></div></div>
   <div class="edcard" style="opacity:.92"><div class="big" style="color:var(--muted)">#0</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill">Finalizado</span><span class="pill warn">Ejemplo</span></div><h3>Así se ve una edición terminada</h3><p class="muted" style="margin:4px 0 0">Campeones de las cinco copas con sus tres jugadores. Datos simulados.</p><div class="champs">${podium}</div></div></div>`;
 }
 
@@ -890,9 +891,9 @@ document.addEventListener('click',e=>{
 document.addEventListener('input',e=>{if(e.target.id==='q'){UI.q=e.target.value;const pos=e.target.selectionStart;renderTorneo();const q=$('#q');q.focus();q.setSelectionRange(pos,pos)}});
 
 $('#copa-strip').innerHTML=COPAS.map(c=>`<div class="copa-tile" style="--c:${c.c}"><b>Copa ${c.name}</b><span>${['Los mejores de la tabla','Segundo bloque','Tercer bloque','Cuarto bloque','A practicar con el corchito de Susana, quedaste eliminado.'][COPAS.indexOf(c)]}</span></div>`).join('');
-const INFO=['Sábado 21/11','Cuba Fátima','19 hs','Show de medio tiempo','After cachengoso','Quedan pocos cupos'];
+const INFO=['Viernes 11/12','BABA Bar','19 hs','Show de medio tiempo','After cachengoso','Quedan pocos cupos'];
 $('#ticker').innerHTML=INFO.concat(INFO).map(x=>`<span><b>${esc(x)}</b></span>`).join('');
-$('#eds').innerHTML=`<div class="edcard"><div class="big">#1</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill warn">Inscripciones abiertas</span><span class="pill">Equipos de 3</span></div><h3>Edición inaugural</h3><p class="muted" style="margin:4px 0 0">Cuba Fátima · Sábado 21 de noviembre · 19 hs</p></div></div>`;
+$('#eds').innerHTML=`<div class="edcard"><div class="big">#1</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill warn">Inscripciones abiertas</span><span class="pill">Equipos de 3</span></div><h3>Edición inaugural</h3><p class="muted" style="margin:4px 0 0">BABA Bar · Viernes 11 de diciembre · 19 hs</p></div></div>`;
 route();
 </script>
 

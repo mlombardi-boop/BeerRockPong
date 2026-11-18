@@ -71,7 +71,7 @@ if PRECIO:
 # Torneo activo: pantalla previa al evento
 s = re.sub(r'(<section class="view" id="v-torneo" hidden>).*?(</section>)',
     lambda m: m.group(1) + f'''
-  <div class="eyebrow">Edición #1 · Cuba Fátima · Sábado 21/11 · 19 hs</div>
+  <div class="eyebrow">Edición #1 · BABA Bar · Viernes 11/12 · 19 hs</div>
   <h2>Torneo <span style="color:var(--orange)">activo</span></h2>
   <div class="op" style="margin-top:18px;max-width:720px">
     <b>Arranca el día del evento</b>
@@ -88,9 +88,9 @@ sub("const VIEWS=['inicio','torneo','ediciones','reglamento','admin'];", "const 
 sub("  if(b.id==='cta-insc'||b.classList.contains('insc-btn')){e.preventDefault();toast('En la web real abre el formulario de inscripción y el pago');return}\n", "")
 
 # Arranque: sin datos simulados
-sub("renderEdiciones();\nrenderAll();\nroute();", """const INFO=['Sábado 21/11','Cuba Fátima','19 hs','Show de medio tiempo','After cachengoso','Quedan pocos cupos'];
+sub("renderEdiciones();\nrenderAll();\nroute();", """const INFO=['Viernes 11/12','BABA Bar','19 hs','Show de medio tiempo','After cachengoso','Quedan pocos cupos'];
 $('#ticker').innerHTML=INFO.concat(INFO).map(x=>`<span><b>${esc(x)}</b></span>`).join('');
-$('#eds').innerHTML=`<div class="edcard"><div class="big">#1</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill warn">Inscripciones abiertas</span><span class="pill">Equipos de 3</span></div><h3>Edición inaugural</h3><p class="muted" style="margin:4px 0 0">Cuba Fátima · Sábado 21 de noviembre · 19 hs</p></div></div>`;
+$('#eds').innerHTML=`<div class="edcard"><div class="big">#1</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill warn">Inscripciones abiertas</span><span class="pill">Equipos de 3</span></div><h3>Edición inaugural</h3><p class="muted" style="margin:4px 0 0">BABA Bar · Viernes 11 de diciembre · 19 hs</p></div></div>`;
 route();""")
 
 # Botón flotante de música con el reproductor de Spotify (abierto al cargar, tema al azar)

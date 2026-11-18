@@ -12,7 +12,7 @@ function crearFormulario() {
   const form = FormApp.create('Beer Rock · Inscripción 1ª edición');
   form.setDescription(
     'Torneo de beer pong · Equipos de 3\n' +
-    'Sábado 21 de noviembre · 19 hs · Cuba Fátima\n\n' +
+    'Viernes 11 de diciembre · 19 hs · BABA Bar\n\n' +
     'Inscripción: ' + PRECIO + '. Transferí al alias ' + ALIAS +
     ' y subí el comprobante al final del formulario. Sin comprobante, el equipo no queda inscripto.\n\n' +
     'Quedan pocos cupos.'

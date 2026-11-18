@@ -22,3 +22,8 @@ Web del torneo de beer pong Beer Rock: https://beerrock.vercel.app (Vercel publi
 
 - `formulario/crear_formulario.gs`: script de Google Apps Script que crea el Google Form y la planilla de respuestas. Para cada edición nueva, actualizar fecha y valores y ejecutarlo de nuevo.
 - `formulario/vista-previa.html`: cómo queda el formulario, con el tipo de cada pregunta.
+
+## Flier
+
+- `flyer/flyer-post.html`: plantilla del flier para Instagram (1080 × 1350). Para una nueva edición se cambian los textos del bloque `DATOS` al final del archivo.
+- `flyer/flyer-post.png`: el flier exportado en alta (2160 × 2700). Se regenera con `python3 flyer/exportar.py`.
