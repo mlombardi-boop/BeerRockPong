@@ -5,17 +5,17 @@
  * Para una nueva edición: actualizar el título, la fecha y los valores de abajo.
  */
 const REGLAMENTO_URL = 'https://beerrock.vercel.app/#reglamento';  // cambiar si se renombra el proyecto en Vercel
-const PRECIO = '$100.000 por equipo (incluye todo para jugar)';
-const ALIAS = 'BEER.ROCK.PONG';
+const PRECIO = '$30.000 por persona ($90.000 por equipo de 3)';
+const ALIAS = 'LA.BUNDES.BIRRA';
 
 function crearFormulario() {
   const form = FormApp.create('BundesBirra · Inscripción Fecha 1');
   form.setDescription(
-    'La Bundes · Liga Argentina de Beerpong · Equipos de 3\n' +
-    'Viernes 11 de diciembre · 19 hs · BABA Bar\n\n' +
-    'Inscripción: ' + PRECIO + '. Transferí al alias ' + ALIAS +
-    ' y subí el comprobante al final del formulario. Sin comprobante, el equipo no queda inscripto.\n\n' +
-    'Quedan pocos cupos.'
+    'BundesBirra · La Bundes · Liga Argentina de Beerpong\n' +
+    'Viernes 11 de diciembre · 19 hs · BABA Bar (Av. del Libertador 2629, Olivos)\n\n' +
+    'Equipos de 3 con 3 partidos garantizados y una cheeseburger por jugador.\n\n' +
+    'Inscripción: ' + PRECIO + '.\nTransferí al alias ' + ALIAS + '\n' +
+    'Subí el comprobante al final del formulario.'
   );
   form.setProgressBar(true);
   form.setAllowResponseEdits(false);
