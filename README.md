@@ -1,6 +1,6 @@
 # BundesBirra · La Bundes
 
-Web de BundesBirra, Liga Argentina de Beerpong: https://beerrock.vercel.app (Vercel publica solo cada push a `main`). Fecha 1: viernes 11 de diciembre, 19 hs, BABA Bar (Av. del Libertador 2629, Olivos). 16 equipos de 3, sin nombre de equipo; copas Oro, Plata y Bronce.
+Web de BundesBirra, Liga Argentina de Beerpong: https://bundesbirra.vercel.app (beerrock.vercel.app redirige acá; Vercel publica solo cada push a `main`). Fecha 1: viernes 11 de diciembre, 19 hs, BABA Bar (Av. del Libertador 2629, Olivos). 16 equipos de 3, sin nombre de equipo; copas Oro, Plata y Bronce.
 
 ## Archivos
 

@@ -3,7 +3,7 @@
  * Uso: pegar en script.google.com, guardar y ejecutar UNA sola vez la función crearFormulario.
  * Para una nueva edición: actualizar el título, la fecha y los valores de abajo.
  */
-const REGLAMENTO_URL = 'https://beerrock.vercel.app/#reglamento';  // cambiar si se renombra el proyecto en Vercel
+const REGLAMENTO_URL = 'https://bundesbirra.vercel.app/#reglamento';
 const PRECIO = '$30.000 por persona ($90.000 por equipo de 3)';
 const ALIAS = 'LA.BUNDES.BIRRA';  // se pasa por WhatsApp, no va en el formulario
 
