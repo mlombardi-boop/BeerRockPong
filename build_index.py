@@ -67,8 +67,8 @@ sub('<a class="btn primary" href="#inicio" id="cta-insc">Inscribí tu equipo</a>
 sub('<a class="btn primary insc-btn" href="#inicio">Inscribí tu equipo</a>',
     f'<a class="btn primary" {form}>Inscribí tu equipo</a>')
 sub('<a class="btn ghost" href="#torneo">Ver torneo en vivo</a>', '<a class="btn ghost" href="#reglamento">Ver reglamento</a>')
-sub('        <div class="cupo-big">Quedan pocos cupos</div>\n',
-    f'        <div class="cupo-big">Quedan pocos cupos</div>\n        <a class="btn primary" {form} style="justify-content:center;margin-top:6px">Inscribirme</a>\n')
+sub('        <div class="cupo-big">No te quedes afuera</div>\n',
+    f'        <div class="cupo-big">No te quedes afuera</div>\n        <a class="btn primary" {form} style="justify-content:center;margin-top:6px">Inscribirme</a>\n')
 if PRECIO:
     s = re.sub(r"<span class=\"precio\">[^<]*</span>", f"<span class=\"precio\">{PRECIO}</span>", s)
 
@@ -92,7 +92,7 @@ sub("const VIEWS=['inicio','torneo','ediciones','reglamento','admin'];", "const 
 sub("  if(b.id==='cta-insc'||b.classList.contains('insc-btn')){e.preventDefault();toast('En la web real abre el formulario de inscripción y el pago');return}\n", "")
 
 # Arranque: sin datos simulados
-sub("renderEdiciones();\nrenderAll();\nroute();", """const INFO=['Viernes 11/12','BABA Bar','19 hs','3 partidos asegurados','No se suspende por lluvia','After','Quedan pocos cupos'];
+sub("renderEdiciones();\nrenderAll();\nroute();", """const INFO=['Viernes 11/12','BABA Bar','19 hs','3 partidos asegurados','No se suspende por lluvia','After','No te quedes afuera'];
 $('#ticker').innerHTML=INFO.concat(INFO).map(x=>`<span><b>${esc(x)}</b></span>`).join('');
 $('#eds').innerHTML=`<div class="edcard"><div class="big">#1</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill warn">Inscripciones abiertas</span><span class="pill">Equipos de 3</span></div><h3>Fecha inaugural</h3><p class="muted" style="margin:4px 0 0">BABA Bar · Viernes 11 de diciembre · 19 hs</p></div></div>`;
 route();""")

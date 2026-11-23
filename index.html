@@ -404,8 +404,8 @@ table.st tr.flash td{animation:flash 1.6s ease-out}
         <dt>Después</dt><dd>After</dd>
       </dl>
       <div class="cupo">
-        <div class="lbl">Cupo</div>
-        <div class="cupo-big">Quedan pocos cupos</div>
+        <div class="lbl">Preinscripción</div>
+        <div class="cupo-big">No te quedes afuera</div>
         <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSe2-UFo3NuBwShoPakJW8BhoWTfUJuiqe88d8PO619on25b4Q/viewform" target="_blank" rel="noopener" style="justify-content:center;margin-top:6px">Inscribirme</a>
       </div>
   </aside>
@@ -880,7 +880,7 @@ document.addEventListener('click',e=>{
 document.addEventListener('input',e=>{if(e.target.id==='q'){UI.q=e.target.value;const pos=e.target.selectionStart;renderTorneo();const q=$('#q');q.focus();q.setSelectionRange(pos,pos)}});
 
 $('#copa-strip').innerHTML=COPAS.map(c=>`<div class="copa-tile" style="--c:${c.c}"><b>Copa ${c.name}</b><span>${['Para los de arriba de la tabla','Para el pelotón del medio','Para los que vienen atrás'][COPAS.indexOf(c)]}</span></div>`).join('');
-const INFO=['Viernes 11/12','BABA Bar','19 hs','3 partidos asegurados','No se suspende por lluvia','After','Quedan pocos cupos'];
+const INFO=['Viernes 11/12','BABA Bar','19 hs','3 partidos asegurados','No se suspende por lluvia','After','No te quedes afuera'];
 $('#ticker').innerHTML=INFO.concat(INFO).map(x=>`<span><b>${esc(x)}</b></span>`).join('');
 $('#eds').innerHTML=`<div class="edcard"><div class="big">#1</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill warn">Inscripciones abiertas</span><span class="pill">Equipos de 3</span></div><h3>Fecha inaugural</h3><p class="muted" style="margin:4px 0 0">BABA Bar · Viernes 11 de diciembre · 19 hs</p></div></div>`;
 route();
