@@ -31,6 +31,10 @@ function crearFormulario() {
     .requireTextIsEmail()
     .build();
 
+  form.addMultipleChoiceItem().setTitle('¿Cómo es el equipo?')
+    .setHelpText('Lo usamos solo para armar los cruces. No se publica.')
+    .setChoiceValues(['Mixto', 'Solo mujeres', 'Solo varones']).setRequired(true);
+
   form.addSectionHeaderItem().setTitle('Integrante 1 (capitán)');
   form.addTextItem().setTitle('Integrante 1: nombre y apellido').setRequired(true);
   form.addTextItem().setTitle('Integrante 1: celular con WhatsApp')
