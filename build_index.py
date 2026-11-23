@@ -1,5 +1,5 @@
-"""Arma index.html (versión de preinscripción para GitHub Pages) a partir de mockup.html.
-También regenera beer-rock.html (el mockup completo como documento descargable).
+"""Arma index.html (versión pública de BundesBirra para Vercel) a partir de mockup.html.
+También regenera bundesbirra-demo.html (el mockup completo, con datos simulados, como documento descargable).
 
 Uso: python3 build_index.py
 Antes de publicar: poner el link real del Google Form en FORM_URL y el valor en PRECIO.
@@ -33,7 +33,7 @@ def as_document(page):
     return HEAD + page.replace(marker, "</head>\n<body>\n" + marker) + "\n</body>\n</html>\n"
 
 
-(here / "beer-rock.html").write_text(as_document(src))
+(here / "bundesbirra-demo.html").write_text(as_document(src))
 
 s = src
 
@@ -55,7 +55,11 @@ sub('<a href="#torneo" data-nav="torneo"><i class="live-dot" aria-hidden="true">
 
 # Ticker con la info del evento en lugar de resultados
 sub('<div class="ticker" aria-label="Últimos resultados">', '<div class="ticker" aria-label="Datos del evento">')
-sub('<div class="tag"><i class="live-dot" aria-hidden="true"></i>En vivo</div>', '<div class="tag">1ª edición</div>')
+sub('<div class="tag"><i class="live-dot" aria-hidden="true"></i>En vivo</div>', '<div class="tag">Fecha 1</div>')
+
+# Agenda: el fixture se publica antes de la fecha, no está en esta versión
+sub('3 partidos por equipo, en 3 mesas. Los cruces ya están sorteados en la página.',
+    '3 partidos por equipo, en 3 mesas. Los cruces se publican acá antes de la fecha.')
 
 # Botones de inscripción al formulario
 sub('<a class="btn primary" href="#inicio" id="cta-insc">Inscribí tu equipo</a>',
@@ -71,11 +75,11 @@ if PRECIO:
 # Torneo activo: pantalla previa al evento
 s = re.sub(r'(<section class="view" id="v-torneo" hidden>).*?(</section>)',
     lambda m: m.group(1) + f'''
-  <div class="eyebrow">Edición #1 · BABA Bar · Viernes 11/12 · 19 hs</div>
+  <div class="eyebrow">Fecha 1 · BABA Bar · Viernes 11/12 · 19 hs</div>
   <h2>Torneo <span style="color:var(--orange)">activo</span></h2>
   <div class="op" style="margin-top:18px;max-width:720px">
-    <b>Arranca el día del evento</b>
-    <p class="muted" style="margin:0">Esa noche vas a ver acá, en vivo, la tabla general, los partidos de cada mesa, las llaves de las cinco copas y todos los equipos con sus integrantes.</p>
+    <b>Arranca el viernes 11/12 a las 19 hs</b>
+    <p class="muted" style="margin:0">Esa noche vas a ver acá, en vivo, la tabla general, los partidos de cada mesa, las llaves de las copas Oro, Plata y Bronce, y todos los equipos.</p>
     <div class="cta" style="margin-top:8px"><a class="btn primary" {form}>Inscribí tu equipo</a><a class="btn ghost" href="#reglamento">Ver reglamento</a></div>
   </div>
 ''' + m.group(2), s, count=1, flags=re.S)
@@ -88,9 +92,9 @@ sub("const VIEWS=['inicio','torneo','ediciones','reglamento','admin'];", "const 
 sub("  if(b.id==='cta-insc'||b.classList.contains('insc-btn')){e.preventDefault();toast('En la web real abre el formulario de inscripción y el pago');return}\n", "")
 
 # Arranque: sin datos simulados
-sub("renderEdiciones();\nrenderAll();\nroute();", """const INFO=['Viernes 11/12','BABA Bar','19 hs','Show de medio tiempo','After cachengoso','Quedan pocos cupos'];
+sub("renderEdiciones();\nrenderAll();\nroute();", """const INFO=['Viernes 11/12','BABA Bar','19 hs','3 partidos asegurados','No se suspende por lluvia','After','Quedan pocos cupos'];
 $('#ticker').innerHTML=INFO.concat(INFO).map(x=>`<span><b>${esc(x)}</b></span>`).join('');
-$('#eds').innerHTML=`<div class="edcard"><div class="big">#1</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill warn">Inscripciones abiertas</span><span class="pill">Equipos de 3</span></div><h3>Edición inaugural</h3><p class="muted" style="margin:4px 0 0">BABA Bar · Viernes 11 de diciembre · 19 hs</p></div></div>`;
+$('#eds').innerHTML=`<div class="edcard"><div class="big">#1</div><div><div class="status-line" style="margin:0 0 6px"><span class="pill warn">Inscripciones abiertas</span><span class="pill">Equipos de 3</span></div><h3>Fecha inaugural</h3><p class="muted" style="margin:4px 0 0">BABA Bar · Viernes 11 de diciembre · 19 hs</p></div></div>`;
 route();""")
 
 # Botón flotante de música con el reproductor de Spotify (abierto al cargar, tema al azar)
@@ -105,14 +109,14 @@ if SPOTIFY_TRACKS:
     height = 80
     s += f'''
 <style>
-.music-btn{{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;width:56px;height:56px;border-radius:50%;border:0;background:var(--orange);color:#1A0B00;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.45)}}
+.music-btn{{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;width:56px;height:56px;border-radius:50%;border:0;background:var(--orange);color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.45)}}
 .music-btn[aria-expanded="true"]{{background:var(--sky);color:var(--night)}}
 .music-card{{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:40;width:min(340px,calc(100vw - 32px));background:var(--court);border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 14px 34px rgba(0,0,0,.5)}}
 .music-card .mh{{display:flex;justify-content:space-between;align-items:center;padding:2px 4px 8px}}
 .music-card .mh button{{border:0;background:none;color:var(--muted);font-size:24px;line-height:1;padding:0 4px}}
 .music-card iframe{{display:block;width:100%;height:{height}px;border:0;border-radius:12px}}
 </style>
-<div class="music-card" id="music-card" hidden><div class="mh"><span class="lbl">Rock para la previa</span><button id="music-close" aria-label="Cerrar reproductor">×</button></div><div id="music-slot"><div id="sp-embed"></div></div></div>
+<div class="music-card" id="music-card" hidden><div class="mh"><span class="lbl">Música para la previa</span><button id="music-close" aria-label="Cerrar reproductor">×</button></div><div id="music-slot"><div id="sp-embed"></div></div></div>
 <button class="music-btn" id="music-btn" aria-label="Música" aria-expanded="false" aria-controls="music-card"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 3v11.6A3.5 3.5 0 1 0 11 18V8h7V3H9Z"/></svg></button>
 <script>
 /* El reproductor arranca cerrado y en pausa: el visitante abre el botón de música y le da play. */
@@ -129,4 +133,4 @@ const sc=document.createElement('script');sc.src='https://open.spotify.com/embed
 '''
 
 (here / "index.html").write_text(as_document(s))
-print("index.html y beer-rock.html listos")
+print("index.html y bundesbirra-demo.html listos")

@@ -1,17 +1,17 @@
 /**
- * Beer Rock · crea el formulario de inscripción y la planilla de respuestas.
+ * BundesBirra · crea el formulario de inscripción y la planilla de respuestas.
  * Uso: pegar en script.google.com, guardar y ejecutar UNA sola vez la función crearFormulario.
  * Después agregar a mano la pregunta "Comprobante de pago" (tipo Subir archivo, obligatoria).
  * Para una nueva edición: actualizar el título, la fecha y los valores de abajo.
  */
-const REGLAMENTO_URL = 'https://beerrock.vercel.app/#reglamento';
-const PRECIO = '$100.000 por equipo (incluye todo para jugar y divertirte)';
+const REGLAMENTO_URL = 'https://beerrock.vercel.app/#reglamento';  // cambiar si se renombra el proyecto en Vercel
+const PRECIO = '$100.000 por equipo (incluye todo para jugar)';
 const ALIAS = 'BEER.ROCK.PONG';
 
 function crearFormulario() {
-  const form = FormApp.create('Beer Rock · Inscripción 1ª edición');
+  const form = FormApp.create('BundesBirra · Inscripción Fecha 1');
   form.setDescription(
-    'Torneo de beer pong · Equipos de 3\n' +
+    'La Bundes · Liga Argentina de Beerpong · Equipos de 3\n' +
     'Viernes 11 de diciembre · 19 hs · BABA Bar\n\n' +
     'Inscripción: ' + PRECIO + '. Transferí al alias ' + ALIAS +
     ' y subí el comprobante al final del formulario. Sin comprobante, el equipo no queda inscripto.\n\n' +
@@ -32,8 +32,6 @@ function crearFormulario() {
     .requireTextIsEmail()
     .build();
 
-  form.addTextItem().setTitle('Nombre del equipo').setRequired(true);
-
   form.addSectionHeaderItem().setTitle('Integrante 1 (capitán)');
   form.addTextItem().setTitle('Integrante 1: nombre y apellido').setRequired(true);
   form.addTextItem().setTitle('Integrante 1: celular con WhatsApp')
@@ -52,7 +50,7 @@ function crearFormulario() {
     .setHelpText('Leelo acá: ' + REGLAMENTO_URL)
     .setChoiceValues(['Leímos y aceptamos el reglamento']).setRequired(true);
 
-  const ss = SpreadsheetApp.create('Beer Rock · Inscriptos 1ª edición');
+  const ss = SpreadsheetApp.create('BundesBirra · Inscriptos Fecha 1');
   form.setDestination(FormApp.DestinationType.SPREADSHEET, ss.getId());
 
   Logger.log('Link para la web (FORM_URL): ' + form.getPublishedUrl());

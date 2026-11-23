@@ -1,10 +1,10 @@
-# Beer Rock
+# BundesBirra · La Bundes
 
-Web del torneo de beer pong Beer Rock: https://beerrock.vercel.app (Vercel publica solo cada push a `main`). 1ª edición: sábado 21 de noviembre, 19 hs, Cuba Fátima.
+Web de BundesBirra, Liga Argentina de Beerpong: https://beerrock.vercel.app (Vercel publica solo cada push a `main`). Fecha 1: viernes 11 de diciembre, 19 hs, BABA Bar (Av. del Libertador 2629, Olivos). 16 equipos de 3, sin nombre de equipo; copas Oro, Plata y Bronce.
 
 ## Archivos
 
-- `index.html`: la web pública (versión de preinscripción). Es la que publica GitHub Pages.
+- `index.html`: la web pública (versión de preinscripción, sin datos simulados ni panel de control). Es la que publica Vercel.
 - `mockup.html`: versión completa con datos de ejemplo (tabla, partidos, copas y mesa de control) para mostrar cómo funciona la noche del evento. Es la fuente de `index.html`.
 - `build_index.py`: genera `index.html` a partir de `mockup.html`.
 - `plantillas/Reglas_Beer_Pong.pdf`: reglas para imprimir.
