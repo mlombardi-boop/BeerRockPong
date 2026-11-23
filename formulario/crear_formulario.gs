@@ -1,12 +1,11 @@
 /**
  * BundesBirra · crea el formulario de inscripción y la planilla de respuestas.
  * Uso: pegar en script.google.com, guardar y ejecutar UNA sola vez la función crearFormulario.
- * Después agregar a mano la pregunta "Comprobante de pago" (tipo Subir archivo, obligatoria).
  * Para una nueva edición: actualizar el título, la fecha y los valores de abajo.
  */
 const REGLAMENTO_URL = 'https://beerrock.vercel.app/#reglamento';  // cambiar si se renombra el proyecto en Vercel
 const PRECIO = '$30.000 por persona ($90.000 por equipo de 3)';
-const ALIAS = 'LA.BUNDES.BIRRA';
+const ALIAS = 'LA.BUNDES.BIRRA';  // se pasa por WhatsApp, no va en el formulario
 
 function crearFormulario() {
   const form = FormApp.create('BundesBirra · Inscripción Fecha 1');
@@ -14,13 +13,13 @@ function crearFormulario() {
     'BundesBirra · La Bundes · Liga Argentina de Beerpong\n' +
     'Viernes 11 de diciembre · 19 hs · BABA Bar (Av. del Libertador 2629, Olivos)\n\n' +
     'Equipos de 3 con 3 partidos garantizados y una cheeseburger por jugador.\n\n' +
-    'Inscripción: ' + PRECIO + '.\nTransferí al alias ' + ALIAS + '\n' +
-    'Subí el comprobante al final del formulario.'
+    'Inscripción: ' + PRECIO + '.\n' +
+    'Esto es una preinscripción: después te escribimos por WhatsApp para confirmar el lugar y pasarte el alias para el pago.'
   );
   form.setProgressBar(true);
   form.setAllowResponseEdits(false);
   form.setConfirmationMessage(
-    '¡Listo! Recibimos la inscripción. Te escribimos por WhatsApp para confirmar el lugar. El que pierde, toma.'
+    '¡Listo! Recibimos la preinscripción a BundesBirra. Te escribimos por WhatsApp para confirmar el lugar y pasarte el alias para el pago. Nos vemos el viernes 11/12 a las 19 hs en BABA Bar.'
   );
 
   const celular = FormApp.createTextValidation()
