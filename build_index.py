@@ -79,7 +79,7 @@ s = re.sub(r'(<section class="view" id="v-torneo" hidden>).*?(</section>)',
   <h2>Torneo <span style="color:var(--orange)">activo</span></h2>
   <div class="op" style="margin-top:18px;max-width:720px">
     <b>Arranca el viernes 11/12 a las 19 hs</b>
-    <p class="muted" style="margin:0">Esa noche vas a ver acá, en vivo, la tabla general, los partidos de cada mesa, las llaves de las copas Oro, Plata y Bronce, y todos los equipos.</p>
+    <p class="muted" style="margin:0">Esa noche vas a ver acá, en vivo, la tabla general, los partidos de cada mesa, las llaves de la Supercopa Chiqui, el Trofeo de Campeones de la Tabla Anual de la Fase General y la Copa Consuelo AFA, y todos los equipos.</p>
     <div class="cta" style="margin-top:8px"><a class="btn primary" {form}>Inscribí tu equipo</a><a class="btn ghost" href="#reglamento">Ver reglamento</a></div>
   </div>
 ''' + m.group(2), s, count=1, flags=re.S)
